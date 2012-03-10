@@ -42,12 +42,25 @@ fillForm:function(personData){
 	$('.namesur').val(personData.namesur);
 	$('.age').val(personData.age);
 	$('.salary').val(personData.salary);
-	$('.phone').val(personData.phone);
-	$('.mail').val(personData.mail);
-	$('.www').val(personData.www);
+	//$('.phone').val(personData.phone);
+	//$('.mail').val(personData.mail);
+	//$('.www').val(personData.www);
+	this.arrayFieldFiller(personData.phone,'phone');
+	this.arrayFieldFiller(personData.mail,'mail');
+	this.arrayFieldFiller(personData.phone,'www');
 	$('.dob').val(personData.dob);
 	$('#item-name-holder').text(personData.city);
 	$('.descr').val(personData.descr);
+},
+
+arrayFieldFiller:function(fields,css){
+	for (var i = 0; i < fields.length; i++){
+		if(i==0){
+			$('.'+css).val(fields[i]);
+		}else {
+			$('.'+css).last().after('<input value='+fields[i]+'></input>');
+		}
+	}
 },
  
 fetchDataById:function(id) {
@@ -129,9 +142,11 @@ appendTable:function(storageData){
 },
 
 renderCell:function(itemProperty){
-	$('#main-table tr').append('<td></td>');
+	$('#main-table tr').last().append('<td></td>');
 	if (itemProperty instanceof Array) {
-		$('#main-table td').last().append(JSON.stringify(itemProperty));
+		for (i in itemProperty){
+			$('#main-table td').last().append(itemProperty[i]).append(',');
+		}
 			} else {
 		$('#main-table td').last().append(itemProperty);
 	}
