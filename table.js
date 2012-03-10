@@ -6,17 +6,19 @@ $(document).ready(function(){
 		CoreTable();
 		Table.fetchDataFromStorage();
 		
+		FieldMultiplier('multiplier',5);
+		
 		$('td input').on('click',function(){
 			var personData = Table.fetchDataById(this.id);
 			storage.setItem('currentId',this.id);
 			Table.fillForm(personData);
-			FieldMultiplier('multiplier',5);
+			//FieldMultiplier('multiplier',5);
 			$("#dialog").dialog({ modal:true,title:'Редактировать пользователя',minWidth:600});	
 		})
 		
 		$('#add-person').on('click',function(){
 			Table.resetForm();
-			FieldMultiplier('multiplier',5);
+			//FieldMultiplier('multiplier',5);
 				$("#dialog").dialog({ modal:true,title:'Добавить пользователя',minWidth:600});	
 		})
 		
@@ -47,7 +49,7 @@ fillForm:function(personData){
 	//$('.www').val(personData.www);
 	this.arrayFieldFiller(personData.phone,'phone');
 	this.arrayFieldFiller(personData.mail,'mail');
-	this.arrayFieldFiller(personData.phone,'www');
+	this.arrayFieldFiller(personData.www,'www');
 	$('.dob').val(personData.dob);
 	$('#item-name-holder').text(personData.city);
 	$('.descr').val(personData.descr);
@@ -58,7 +60,7 @@ arrayFieldFiller:function(fields,css){
 		if(i==0){
 			$('.'+css).val(fields[i]);
 		}else {
-			$('.'+css).last().after('<input value='+fields[i]+'></input>');
+			$('.'+css).last().after('<input class='+css+' value='+fields[i]+'></input>');
 		}
 	}
 },

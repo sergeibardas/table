@@ -5,7 +5,7 @@ var FieldMultiplier = function(locator,limit){
 	 
 		 if (noOfInputs < limit){
 				var styleClass = $(this).prev().attr('class');
-				$(this).after("<input class='remover' value='-' />");
+				$(this).after("<span class='remover'/>");
 				$(this).after('<input class='+styleClass+'>'+'</input>');
 				$(this).after("<label class='form-label'>.</span>");
 			}
