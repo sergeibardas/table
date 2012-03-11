@@ -17,9 +17,14 @@ $(document).ready(function(){
 		})
 		
 		$('#add-person').on('click',function(){
+			$('.edit-person').val('добавить');
 			Table.resetForm();
 			//FieldMultiplier('multiplier',5);
 				$("#dialog").dialog({ modal:true,title:'Добавить пользователя',minWidth:600});	
+		})
+		
+		$('.edit-person').on('click',function(){
+			Table.adder();
 		})
 		
 		//default sorting is ASC by Name
@@ -60,7 +65,8 @@ arrayFieldFiller:function(fields,css){
 		if(i==0){
 			$('.'+css).val(fields[i]);
 		}else {
-			$('.'+css).last().after('<input class='+css+' value='+fields[i]+'></input>');
+			var styleClass = $('.'+css).prev().attr('class');
+			$('.'+css).last().after('<label class='+styleClass+'>.</label><input class='+css+' value='+fields[i]+'></input>');
 		}
 	}
 },
