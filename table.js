@@ -41,7 +41,7 @@ resetForm:function(){
 	$('.mail').val('');
 	$('.www').val('');
 	$('.dob').val('');
-	$('#item-name-holder').text('');
+	$('.autocompl-component').text('');
 	$('.descr').val('');
 },
 
@@ -56,7 +56,7 @@ fillForm:function(personData){
 	this.arrayFieldFiller(personData.mail,'mail');
 	this.arrayFieldFiller(personData.www,'www');
 	$('.dob').val(personData.dob);
-	$('#item-name-holder').text(personData.city);
+	$('.autocompl-component').text(personData.city);
 	$('.descr').val(personData.descr);
 },
 
@@ -111,7 +111,7 @@ adder:function(){
 			'www':wwws,
 			'dob':$('.dob').val(),
 			'descr':$('.descr').val(),
-			'city':$('#item-name-holder').text(),
+			'city':$('.autocompl-component').text(),
 			'id':(storage.getItem('currentId')=="") || (storage.getItem('currentId')==null)?this.initializeID():storage.getItem('currentId')
 		}
 		
