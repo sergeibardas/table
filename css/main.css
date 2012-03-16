@@ -1,0 +1,68 @@
+body {
+	font-family:helvetica;
+	}
+.ui-widget-header{
+	background:none !important;
+	border:none !important;
+}
+
+.form-label{
+	width: 200px;
+	float:left;
+	font-size:14px;
+}
+.form-row{
+	margin-bottom:8px;
+	font-size:12px;
+}
+.form-row input{
+	height:22px;
+}
+.namesur{
+	width:350px;
+}
+.age{
+	width:60px;
+}
+.salary{
+	width:120px;
+}
+.phone{
+	width:180px;
+}
+.www{
+	width:180px;
+}
+.mail{
+	width:180px;
+}
+.edit-button{
+	height:auto !important;
+	font-size:10px !important;
+}
+.descr{
+	width:350px;
+	height:50px;
+}
+.remover{
+	width:24px;
+	height:18px !important;
+	margin:2px 0 0 2px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:1px solid #999;
+}
+.remover:after{
+	content:"-";
+}
+
+.control{
+	border-bottom: 1px dotted;
+    text-decoration: none;
+	margin-top:15px;
+}
+
+.control:hover {
+	color:#FF1A00;
+}

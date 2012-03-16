@@ -1,17 +1,24 @@
 ﻿<head>
 	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-	<link href="main.css" rel="stylesheet" type="text/css"/>
-	<link href="libs/calendar/main.css" rel="stylesheet" type="text/css"/>
-	<link href="libs/autocomplete/main.css" rel="stylesheet" type="text/css"/>
-	<link href="libs/core-table/main.css" rel="stylesheet" type="text/css"/>
-	<script src="libs/jquery.min.js"></script>
-	<script src="libs/jquery-ui.min.js"></script>
-	<script src="libs/calendar/flipCalendar.js"></script>
-	<script src="libs/core-table/coreTable.js"></script>
-	<script src="libs/autocomplete/autocomplete.js"></script>
-	<script src="libs/jquery.tablesorter.js"></script>
-	<script src="libs/field-multiplier/field-multiplier.js"></script>
-	<script src='table.js'></script>
+	<link href="css/main.css" rel="stylesheet" type="text/css"/>
+	<link href="js/table/calendar/css/main.css" rel="stylesheet" type="text/css"/>
+	<link href="js/table/autocomplete/css/main.css" rel="stylesheet" type="text/css"/>
+	<link href="js/table/sorter/css/main.css" rel="stylesheet" type="text/css"/>
+	<script src="js/jquery/jquery.min.js"></script>
+	<script src="js/jquery/jquery-ui.min.js"></script>
+	<script src="js/jquery/jquery.tablesorter.js"></script>
+	<script src="js/table/calendar/flipCalendar.js"></script>
+	<script src="js/table/sorter/sorter.js"></script>
+	<script src="js/table/autocomplete/autocomplete.js"></script>
+	<script src="js/table/field-multiplier/field-multiplier.js"></script>
+	<script src="js/table/filter/filter.js"></script>
+	<script src="js/table/storage/storage.js"></script>
+	<script src='js/table/table.js'></script>
+	<script>
+		$(document).ready(function(){
+			Table.init();   
+		})
+	</script>
 </head>
 
 <body>
@@ -19,19 +26,28 @@
 <h2>Пользователи</h2>
 
 <form id="global-form">
-	<div class="filter-controls">
+	<div class="filter-controls">	
+		<div style="float:left;">	
+			<div class="city-filter-label">ФИО</div>
 			<input type="text" id="filter-key" class="filter-key"/>
-			<!--
-			<div class="city-filter-label">По городам</div>
-			<div class="main-container">
-					<div class="autocompl-component">
-						<div class="sprite"><b></b></div>
-					</div>
-				<div id="items-drop" class="items-drop-container"></div>
-			</div>
-			-->
+		</div>	
+		<div style="float:left;">		
+				<div class="city-filter-label">Город</div>
+				<div class="main-container">
+						<div id="autocompl-component" class="auto">
+						<span></span>
+						</div>
+						
+					<div id="city-filter" class="items-drop-container"></div>
+				
+				</div>
+		</div>	
+		<div id="filters-reset" style="color:red;cursor:pointer;font-weight:bold;float:left;width:100px;margin:16px 0 0 10px;" title='сбросить фильтры'>&#215;</div>
 	</div>
 </form>
+<div style="margin:30px 0 20px 0;">
+	<a href="#" id="add-person" class="control">добавить</a>
+</div>
 
 <table id="main-table" cellspacing="0" cellpadding="0" class="tablesorter">
 		<thead id="headers" class="header">
@@ -92,7 +108,7 @@
 </table>
 
 <div id="dialog" style="display:none;">
-	<form>
+	<form id="person-form">
 			<div class="form-row"><label class="form-label">Имя и фамилия</label><input type="text" class="namesur"/></div>
 			<div class="form-row"><label class="form-label">Возраст</label><input type="text" class="age"/></div>
 			<div class="form-row"><label class="form-label">Зарплата</label><input type="text" class="salary"/></div>
@@ -101,17 +117,17 @@
 			<div class="form-row"><label class="form-label">Сайты</label><input type="text" class="www"/><span class="multiplier">+</span></div>
 			<div class="form-row"><label class="form-label">Дата рождения</label><input type="text" class="dob"/></div>
 			<div class="form-row"><label class="form-label">Город</label></div>
-			<div class="main-container form-row">
-						<div class="autocompl-component">
-							<span id="item-name-holder"></span>
-							<div class="sprite"><b></b></div>
-						</div>
-					<div id="items-drop" class="items-drop-container"></div>
+			<div class="main-container">
+					<div id="autocompl-component-dialog" class="auto">
+						<span></span>
+					</div>
+				<div class="items-drop-container"></div>
 			</div><br/>
+			
 			<div class="form-row"><label class="form-label">Описание</label><textarea class="descr"></textarea></div><br/>
-			<div class="form-row"><input type="button" value="редактировать" onclick="Table.adder();" class="edit-button"/></div>
+			<div class="form-row"><input type="button" value="редактировать" class="edit-person"/></div>
 	<form>
 </div>
-<input type="button" id="add-person" value="добавить"/>
+
 
 </body>

@@ -1,0 +1,79 @@
+.fixed{
+border: 0 none;
+    border-collapse: collapse;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+
+}
+
+
+.tablesorter {
+	cursor:default;
+	font-family:verdana;
+	font-size:11px;
+}
+.tablesorter td,.tablesorter th {
+	 padding-left:30px;
+}
+
+.tablesorter tbody tr td:nth-child(1) ,.tablesorter tbody tr td:nth-child(3) {
+	 color:#1876AC;
+}
+
+.tablesorter tbody tr td:nth-child(2){
+	 color:#FF1A00;
+}
+
+.tablesorter a {
+	 text-decoration:none;
+	 border-bottom:1px dotted;
+}
+
+.tablesorter a:hover {
+	 color:#FF1A00;
+}
+
+#main-table tr:nth-child(1n+2):hover {
+  background-color:#E8F8FC;
+}
+
+#main-table td {
+  padding-bottom:10px;
+}
+
+.one-row {
+	height:300px;
+}
+.header{
+	background-color:#fff;
+}
+
+.tablesorter tr:nth-child(1){
+	font-weight:bold;
+	color:#0baee5;
+}
+
+.filter-key {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	float:left;
+	margin-right:50px;
+	width:250px;
+}
+.city-filter {
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	width:200px;
+}
+
+.city-filter-label {
+	font-weight:bold;font-size:12px;
+}
+
+.filter-controls {
+	height:50px;
+}
