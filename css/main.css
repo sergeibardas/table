@@ -56,3 +56,13 @@ body {
 .remover:after{
 	content:"-";
 }
+
+.control{
+	border-bottom: 1px dotted;
+    text-decoration: none;
+	margin-top:15px;
+}
+
+.control:hover {
+	color:#FF1A00;
+}

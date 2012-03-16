@@ -1,5 +1,5 @@
 var FieldMultiplier = function(locator,limit){
-	$('.'+locator).click(function(){
+	$(locator).click(function(){
 	 var container = $(this).parent();
 	 var noOfInputs = container.children('input').length;
 		 if (noOfInputs < limit){

@@ -39,6 +39,10 @@ border: 0 none;
   background-color:#E8F8FC;
 }
 
+#main-table td {
+  padding-bottom:10px;
+}
+
 .one-row {
 	height:300px;
 }
@@ -57,7 +61,6 @@ border: 0 none;
 	border-radius: 5px;
 	float:left;
 	margin-right:50px;
-	margin-top:15px;
 	width:250px;
 }
 .city-filter {
